@@ -9,7 +9,7 @@ import requests
 _URL = 'http://localhost:8888'
 
 
-@mark.gate0
+@mark.gate00
 def test_000_say_hello():
     """
     This is the 1st and simplest test of this game.
