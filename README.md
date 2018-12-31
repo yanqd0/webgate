@@ -44,8 +44,9 @@ pytest -m gate00,gate01
 
 The gates:
 
-- `gate00`：Run a server, return `Hello world!`.
-- `gate01`：3 ways to handle the arguments from clients.
+- `gate00`: Run a server, return `Hello world!`.
+- `gate01`: 3 simple ways to handle the arguments from clients.
+- `gate02`: Receive and return with JSON.
 
 `pydoc` can provide more information, like:
 
@@ -95,10 +96,9 @@ There are some web frameworks for newbies:
 
 - **[Flask]**
 - [Django]
-- [Falcon]
 - **[Node.js]**
 
-[Flask] is used when developing actually.
+[Flask] is used when test cases are developing.
 
 [Flask]:http://flask.pocoo.org/
 [Django]:https://djangoproject.com/
