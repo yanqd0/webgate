@@ -1,5 +1,5 @@
 """
-This gate is about receive and handle arguments from URL.
+This gate is about receiving arguments from a request.
 """
 from pytest import mark
 
@@ -58,6 +58,27 @@ def test_003_form(username, password):
         },
     )
     response.raise_for_status()
-    result = response.json()
-    assert result['user'] == username
-    assert result['pass'] == password
+    assert response.content.decode() == 'login success'
+
+
+@mark.gate01
+@mark.parametrize(
+    'username, password', [
+        ('Alice', '123456'),
+        ('Bob', 'batman'),
+    ]
+)
+def test_004_form_fail(username, password):
+    """
+    If the password is error, 'login fail' should be returned.
+
+    URL example: http://localhost:8888/form
+    """
+    response = requests.post(
+        URL + '/form',
+        data={
+            'username': username,
+            'password': password,
+        },
+    )
+    assert response.content.decode() == 'login fail'
